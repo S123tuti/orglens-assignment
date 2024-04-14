@@ -1,0 +1,29 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Landing Page Styles */
+.landing-page {
+    background-color: #f0f0f0;
+    padding: 100px 0;
+}
+
+/* Question Page Styles */
+.question-page {
+    padding: 50px 0;
+}
+
+.options {
+    margin-top: 20px;
+}
+
+.options label {
+    margin-right: 10px;
+}

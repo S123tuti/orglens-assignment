@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey UI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <div class="question-page">
+        <div class="container">
+            <h2 class="text-center">Question 1</h2>
+            <p class="lead text-center">How likely are you to recommend our product to a friend or colleague?</p>
+            <div class="text-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating1" id="option1_1" value="1"> 1
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating1" id="option1_2" value="2"> 2
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating1" id="option1_3" value="3"> 3
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating1" id="option1_4" value="4"> 4
+                    </label>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="checkAnswer(1)">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-page" style="display: none;">
+        <div class="container">
+            <h2 class="text-center">Question 2</h2>
+            <p class="lead text-center">How satisfied are you with the ease of use of our product?</p>
+            <div class="text-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating2" id="option2_1" value="1"> 1
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating2" id="option2_2" value="2"> 2
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating2" id="option2_3" value="3"> 3
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating2" id="option2_4" value="4"> 4
+                    </label>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="checkAnswer(2)">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-page" style="display: none;">
+        <div class="container">
+            <h2 class="text-center">Question 3</h2>
+            <p class="lead text-center">How likely are you to purchase our product again?</p>
+            <div class="text-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating3" id="option3_1" value="1"> 1
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating3" id="option3_2" value="2"> 2
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating3" id="option3_3" value="3"> 3
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating3" id="option3_4" value="4"> 4
+                    </label>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="checkAnswer(3)">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="question-page" style="display: none;">
+        <div class="container">
+            <h2 class="text-center">Question 4</h2>
+            <p class="lead text-center">How likely are you to recommend our product to a friend or colleague?</p>
+            <div class="text-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating4" id="option4_1" value="1"> 1
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating4" id="option4_2" value="2"> 2
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating4" id="option4_3" value="3"> 3
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="rating4" id="option4_4" value="4"> 4
+                    </label>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="checkAnswer(4)">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var totalQuestions = 4;
+        var currentQuestion = 1;
+
+        function checkAnswer(questionNumber) {
+            
+            var selectedOption = document.querySelector('input[name="rating' + questionNumber + '"]:checked');
+
+            if (selectedOption) {
+                if (selectedOption.value === "3") {
+                    if (currentQuestion < totalQuestions) {
+                        document.querySelector('.question-page:nth-child(' + currentQuestion + ')').style.display = "none";
+                        currentQuestion++;
+                        document.querySelector('.question-page:nth-child(' + currentQuestion + ')').style.display = "block";
+                    } else {
+                        alert("All questions answered. Thank you!");
+                    }
+                } else {
+                    var radioButtons = document.querySelectorAll('input[name="rating' + questionNumber + '"]');
+                    radioButtons.forEach(function(button) {
+                        button.checked = false;
+                    });
+                    alert("Incorrect answer! Please try again.");
+                }
+            } else {
+                alert("Please select an option.");
+            }
+        }
+    </script>
+
+</body>
+</html>

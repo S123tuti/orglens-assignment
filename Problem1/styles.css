@@ -1,0 +1,49 @@
+body {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.top-box {
+    background-image: url('img.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgb(18, 4, 4);
+    padding: 20px;
+}
+
+.navigation-box {
+    background-color: lightyellow;
+    padding: 20px;
+    width: 80%; /* Adjust the width as needed for desktop */
+    float: left;
+}
+
+.content-box {
+    background-color: lightblue;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.content-box p:hover {
+    color: blue;
+    font-style: italic;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+    /* Adjust styles for desktop */
+    .content-box {
+        width: 70%; /* Calculate remaining width dynamically */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    /* Adjust styles for mobile */
+    .navigation-box {
+        width: 100%; /* Cover the entire width on mobile */
+        float: none;
+    }
+}

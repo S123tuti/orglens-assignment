@@ -1,0 +1,13 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-div {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+}
